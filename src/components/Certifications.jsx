@@ -8,7 +8,7 @@ const certifications = [
     title: 'Data Analytics Job Simulation',
     organization: 'Deloitte',
     date: 'Jul 2025',
-    link: 'https://drive.google.com/file/d/1Z5KbPwvcS5eFSgp11M7nUobOOiaWDv7e/view?usp=sharing'
+    link: 'https://drive.google.com/file/d/1Wk0HxwKn04L21XqRryVhVccJRkUhqlgc/view?usp=sharing'
   },
   {
     title: 'Natural Language Processing for Developers',
