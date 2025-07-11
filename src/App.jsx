@@ -6,10 +6,8 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
-import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Certifications from './components/Certifications';
-import Education from './components/Education';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
@@ -26,10 +24,8 @@ function App() {
             <Route path="/" element={<Hero />} />
             <Route path="/about" element={<About />} />
             <Route path="/skills" element={<Skills />} />
-            <Route path="/experience" element={<Experience />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/certifications" element={<Certifications />} />
-            <Route path="/education" element={<Education />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </div>
