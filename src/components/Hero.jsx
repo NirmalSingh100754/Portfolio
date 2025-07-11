@@ -1,9 +1,10 @@
 // src/components/Hero.jsx
 import React from 'react';
-import Typical from 'react-typical';
+import { TypeAnimation } from 'react-type-animation';
 import { motion } from 'framer-motion';
 import { FaGithub, FaHackerrank } from 'react-icons/fa';
 import { SiLeetcode } from 'react-icons/si';
+import { Link } from 'react-router-dom';
 import './Hero.css';
 
 const Hero = () => {
@@ -18,15 +19,15 @@ const Hero = () => {
         <h1 className="hero-title">Hi, I'm Nirmal Singh</h1>
 
         <h2 className="hero-typing">
-          <Typical
-            steps={[
+          <TypeAnimation
+            sequence={[
               'Software Developer 💻', 1500,
               'UI/UX Designer 🎨', 1500,
               'Data Analyst 📊', 1500,
               'ML Enthusiast 🤖', 1500,
             ]}
-            loop={Infinity}
-            wrapper="span"
+            speed={50}
+            repeat={Infinity}
           />
         </h2>
 
@@ -35,9 +36,11 @@ const Hero = () => {
         </p>
 
         <div className="hero-buttons">
-          <a href="#projects" className="btn-primary">View Projects</a>
+          <Link to="/projects" className="btn-primary">
+  View Projects
+</Link>
           <a
-            href="https://drive.google.com/file/d/1sBVWtTIeIwQ2pYbbBjok-fSNkqSIvnfX/view?usp=sharing"
+            href="https://drive.google.com/file/d/1iWx8i9z9D-UGAT33VDgiJi82baSTHOu4/view?usp=drive_link"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-outline"
