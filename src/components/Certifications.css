@@ -1,9 +1,9 @@
 /* src/components/Certifications.css */
 
 .certifications {
-  min-height: 100vh;
+  min-height: 90vh;
   width: 100%;
-  padding: 100px 24px 60px;
+  padding:  24px 60px;
   background-color: #ffffff;
   display: flex;
   flex-direction: column;

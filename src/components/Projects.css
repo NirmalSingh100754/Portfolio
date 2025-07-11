@@ -141,7 +141,7 @@ body.dark-mode .project-link {
   color: #60a5fa;
 }
 .projects {
-  min-height: 100vh;
+  min-height: 90vh;
   padding: 100px 24px 60px;
   background-color: #ffffff;
   display: flex;
