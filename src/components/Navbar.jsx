@@ -1,20 +1,39 @@
 // src/components/Navbar.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = () => {
-  const [dark, setDark] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
+  // Toggle dark mode
   const toggleDarkMode = () => {
-    document.body.classList.toggle('dark-mode');
-    setDark(!dark);
+    setDarkMode(!darkMode);
+    document.body.classList.toggle('dark-mode', !darkMode);
   };
+
+  // Close menu on route change
+  useEffect(() => {
+    const closeOnResize = () => {
+      if (window.innerWidth > 768) setMenuOpen(false);
+    };
+    window.addEventListener('resize', closeOnResize);
+    return () => window.removeEventListener('resize', closeOnResize);
+  }, []);
 
   return (
     <nav className="navbar">
       <div className="navbar-title">Nirmal Singh</div>
-      <div className="navbar-links">
+
+      {/* Hamburger Icon */}
+      <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+        <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
+        <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
+        <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
+      </div>
+
+      <div className={`navbar-links ${menuOpen ? 'active' : ''}`}>
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
         <Link to="/skills">Skills</Link>
@@ -23,10 +42,10 @@ const Navbar = () => {
         <Link to="/certifications">Certifications</Link>
         <Link to="/education">Education</Link>
         <Link to="/contact">Contact</Link>
+        <button className="dark-toggle" onClick={toggleDarkMode}>
+          {darkMode ? '☀️ Light' : '🌙 Dark'}
+        </button>
       </div>
-      <button onClick={toggleDarkMode} className="dark-toggle">
-        {dark ? '☀️' : '🌙'}
-      </button>
     </nav>
   );
 };
