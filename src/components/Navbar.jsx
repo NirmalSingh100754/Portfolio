@@ -4,16 +4,22 @@ import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = () => {
-  const [darkMode, setDarkMode] = useState(false);
+  // Detect system preference or saved theme
+  const [darkMode, setDarkMode] = useState(() => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) return savedTheme === 'dark';
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  });
+
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Toggle dark mode
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-    document.body.classList.toggle('dark-mode', !darkMode);
-  };
+  // Apply dark mode class to body
+  useEffect(() => {
+    document.body.classList.toggle('dark-mode', darkMode);
+    localStorage.setItem('theme', darkMode ? 'dark' : 'light');
+  }, [darkMode]);
 
-  // Close menu on route change
+  // Close menu when resizing above mobile width
   useEffect(() => {
     const closeOnResize = () => {
       if (window.innerWidth > 768) setMenuOpen(false);
@@ -26,7 +32,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-title">Nirmal Singh</div>
 
-      {/* Hamburger Icon */}
+      {/* Hamburger icon for mobile */}
       <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
         <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
         <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
@@ -34,15 +40,15 @@ const Navbar = () => {
       </div>
 
       <div className={`navbar-links ${menuOpen ? 'active' : ''}`}>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/skills">Skills</Link>
-        <Link to="/experience">Experience</Link>
-        <Link to="/projects">Projects</Link>
-        <Link to="/certifications">Certifications</Link>
-        <Link to="/education">Education</Link>
-        <Link to="/contact">Contact</Link>
-        <button className="dark-toggle" onClick={toggleDarkMode}>
+        <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
+        <Link to="/about" onClick={() => setMenuOpen(false)}>About</Link>
+        <Link to="/skills" onClick={() => setMenuOpen(false)}>Skills</Link>
+        <Link to="/experience" onClick={() => setMenuOpen(false)}>Experience</Link>
+        <Link to="/projects" onClick={() => setMenuOpen(false)}>Projects</Link>
+        <Link to="/certifications" onClick={() => setMenuOpen(false)}>Certifications</Link>
+        <Link to="/education" onClick={() => setMenuOpen(false)}>Education</Link>
+        <Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
+        <button className="dark-toggle" onClick={() => setDarkMode(!darkMode)}>
           {darkMode ? '☀️ Light' : '🌙 Dark'}
         </button>
       </div>
