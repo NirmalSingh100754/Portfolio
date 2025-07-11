@@ -1,10 +1,9 @@
 // src/components/Navbar.jsx
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = () => {
-  // Detect system preference or saved theme
   const [darkMode, setDarkMode] = useState(() => {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) return savedTheme === 'dark';
@@ -13,13 +12,11 @@ const Navbar = () => {
 
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Apply dark mode class to body
   useEffect(() => {
     document.body.classList.toggle('dark-mode', darkMode);
     localStorage.setItem('theme', darkMode ? 'dark' : 'light');
   }, [darkMode]);
 
-  // Close menu when resizing above mobile width
   useEffect(() => {
     const closeOnResize = () => {
       if (window.innerWidth > 768) setMenuOpen(false);
@@ -32,7 +29,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-title">Nirmal Singh</div>
 
-      {/* Hamburger icon for mobile */}
+      {/* Hamburger icon */}
       <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
         <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
         <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
@@ -40,14 +37,12 @@ const Navbar = () => {
       </div>
 
       <div className={`navbar-links ${menuOpen ? 'active' : ''}`}>
-        <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
-        <Link to="/about" onClick={() => setMenuOpen(false)}>About</Link>
-        <Link to="/skills" onClick={() => setMenuOpen(false)}>Skills</Link>
-        <Link to="/experience" onClick={() => setMenuOpen(false)}>Experience</Link>
-        <Link to="/projects" onClick={() => setMenuOpen(false)}>Projects</Link>
-        <Link to="/certifications" onClick={() => setMenuOpen(false)}>Certifications</Link>
-        <Link to="/education" onClick={() => setMenuOpen(false)}>Education</Link>
-        <Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
+        <NavLink to="/" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>Home</NavLink>
+        <NavLink to="/about" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>About</NavLink>
+        <NavLink to="/skills" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>Skills</NavLink>
+        <NavLink to="/projects" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>Projects</NavLink>
+        <NavLink to="/certifications" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>Certifications</NavLink>
+        <NavLink to="/contact" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>Contact Me</NavLink>
         <button className="dark-toggle" onClick={() => setDarkMode(!darkMode)}>
           {darkMode ? '☀️ Light' : '🌙 Dark'}
         </button>

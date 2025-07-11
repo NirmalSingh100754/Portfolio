@@ -1,21 +1,20 @@
 /* src/components/Navbar.css */
 
 .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  background-color: #ffffff;
-  padding: 12px 24px;
+  width: 100%;
+  padding: 20px 40px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  position: sticky;
+  top: 0;
   z-index: 1000;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 body.dark-mode .navbar {
-  background-color: #1a1a1a;
+  background-color: #1e1e1e;
 }
 
 .navbar-title {
@@ -24,41 +23,74 @@ body.dark-mode .navbar {
   color: #1e40af;
 }
 
+body.dark-mode .navbar-title {
+  color: #60a5fa;
+}
+
 .navbar-links {
   display: flex;
-  gap: 20px;
+  gap: 16px;
   align-items: center;
 }
 
-.navbar-links a {
+/* ✅ NavLink default */
+.nav-link {
   text-decoration: none;
-  color: #333;
   font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 4px;
   transition: 0.2s;
+  position: relative;
+  color: #1e293b; /* dark slate for light mode */
 }
 
-body.dark-mode .navbar-links a {
-  color: #eee;
+.nav-link:hover {
+  background-color: rgba(30, 64, 175, 0.1);
 }
 
-.navbar-links a:hover {
+/* ✅ Active link */
+.nav-link.active {
   color: #1e40af;
 }
 
+
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: currentColor;
+}
+
+/* ✅ Dark mode links */
+body.dark-mode .nav-link {
+  color: #cccccc;
+}
+
+body.dark-mode .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .nav-link.active {
+  color: #60a5fa;
+}
+/* Dark mode toggle button */
 .dark-toggle {
-  background: none;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 6px 12px;
+  background: transparent;
+  border: none;
+  font-size: 1rem;
   cursor: pointer;
+  color: #1e40af;
 }
 
 body.dark-mode .dark-toggle {
-  border-color: #777;
-  color: #eee;
+  color: #60a5fa;
 }
 
-/* Hamburger */
+/* Hamburger icon */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -69,52 +101,42 @@ body.dark-mode .dark-toggle {
 .bar {
   width: 25px;
   height: 3px;
-  background-color: #333;
+  background-color: #1e40af;
   transition: 0.3s;
 }
 
 body.dark-mode .bar {
-  background-color: #eee;
+  background-color: #60a5fa;
 }
 
-/* Rotate animation when open */
-.bar.open:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-.bar.open:nth-child(2) {
-  opacity: 0;
-}
-.bar.open:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
-}
-
-/* Mobile Responsive */
+/* Responsive styles */
 @media (max-width: 768px) {
   .hamburger {
     display: flex;
   }
 
   .navbar-links {
-    position: absolute;
-    top: 64px;
-    left: 0;
-    width: 100%;
-    background-color: inherit;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px 0;
     display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 40px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    z-index: 1001;
+  }
+
+  body.dark-mode .navbar-links {
+    background-color: #1e1e1e;
   }
 
   .navbar-links.active {
     display: flex;
   }
 
-  .navbar-links a {
-    margin: 10px 0;
-  }
-
-  .dark-toggle {
-    margin-top: 12px;
+  .nav-link {
+    margin: 8px 0;
   }
 }

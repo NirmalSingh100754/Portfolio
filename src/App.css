@@ -34,3 +34,10 @@ button, .btn-primary, .btn-outline {
   transition: 0.3s;
   font-size: 1rem;
 }
+body {
+  background-color: #ffffff;
+}
+
+body.dark-mode {
+  background-color: #121212;
+}

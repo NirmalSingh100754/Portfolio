@@ -1,68 +1,13 @@
 /* src/components/Contact.css */
-.contact {
-  padding: 100px 24px 60px;
-  background-color: #fff;
-  display: flex;
-  justify-content: center;
-}
-
-.contact-content {
-  max-width: 800px;
-  width: 100%;
-  text-align: center;
-}
-
-.contact-title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #1e40af;
-  margin-bottom: 16px;
-}
-
-.contact-subtitle {
-  font-size: 1.1rem;
-  color: #444;
-  margin-bottom: 24px;
-}
-
-.contact-info {
-  margin-bottom: 24px;
-  font-size: 1rem;
-  color: #333;
-}
-
-.contact-info a {
-  color: #1e40af;
-  text-decoration: underline;
-}
-
-.contact-links {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.contact-links a {
-  color: #1e40af;
-  font-weight: 500;
-  text-decoration: none;
-  border: 1px solid #1e40af;
-  padding: 8px 16px;
-  border-radius: 6px;
-  transition: background-color 0.3s;
-}
-
-.contact-links a:hover {
-  background-color: #1e40af;
-  color: #fff;
-}
 
 .contact {
+  min-height: 90vh;
   padding: 100px 24px 60px;
   background-color: #ffffff;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* 🔧 Aligned to top */
 }
 
 body.dark-mode .contact {
@@ -79,7 +24,7 @@ body.dark-mode .contact {
   font-size: 2.5rem;
   font-weight: bold;
   color: #1e40af;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 body.dark-mode .contact-title {
@@ -90,20 +35,36 @@ body.dark-mode .contact-title {
   font-size: 1.1rem;
   color: #444;
   margin-bottom: 24px;
+  text-align: center;
 }
 
 body.dark-mode .contact-subtitle {
   color: #cccccc;
 }
 
-.contact-info {
-  margin-bottom: 24px;
+.contact-text {
   font-size: 1rem;
-  color: #333;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  text-align: center;
+  max-width: 600px;
+}
+
+body.dark-mode .contact-text {
+  color: #cccccc;
+}
+
+.contact-info {
+  font-size: 1rem;
+  color: #1a1a1a;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  text-align: center;
 }
 
 body.dark-mode .contact-info {
-  color: #eeeeee;
+  color: #e0e0e0;
 }
 
 .contact-info a {
@@ -117,32 +78,32 @@ body.dark-mode .contact-info a {
 
 .contact-links {
   display: flex;
-  justify-content: center;
-  gap: 20px;
+  gap: 16px;
   flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .contact-links a {
-  color: #1e40af;
-  font-weight: 500;
-  text-decoration: none;
   border: 1px solid #1e40af;
   padding: 8px 16px;
   border-radius: 6px;
-  transition: background-color 0.3s;
+  color: #1e40af;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.2s;
 }
 
 .contact-links a:hover {
-  background-color: #1e40af;
-  color: #fff;
+  background-color: #e8f0ff;
 }
 
 body.dark-mode .contact-links a {
-  color: #60a5fa;
   border-color: #60a5fa;
+  color: #60a5fa;
 }
 
 body.dark-mode .contact-links a:hover {
-  background-color: #60a5fa;
-  color: #000;
+  background-color: #1e3a8a;
+  color: #ffffff;
 }
