@@ -1,0 +1,60 @@
+/* src/components/About.css */
+.about {
+  padding: 100px 24px 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-content {
+  max-width: 800px;
+  text-align: center;
+}
+
+.about-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #1e40af;
+  margin-bottom: 20px;
+}
+
+.about-text {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.about {
+  padding: 100px 24px 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+}
+
+body.dark-mode .about {
+  background-color: #121212;
+}
+
+.about-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #1e40af;
+  margin-bottom: 20px;
+}
+
+body.dark-mode .about-title {
+  color: #60a5fa;
+}
+
+.about-text {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+body.dark-mode .about-text {
+  color: #cccccc;
+}
