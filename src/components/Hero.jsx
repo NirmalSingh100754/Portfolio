@@ -22,10 +22,11 @@ const Hero = () => {
         <h2 className="hero-typing">
           <TypeAnimation
             sequence={[
-              'Software Developer 💻', 1500,
-              'UI/UX Designer 🎨', 1500,
-              'Data Analyst 📊', 1500,
-              'ML Enthusiast 🤖', 1500,
+              'Software Developer 💻', 1800,
+              'UI/UX Designer 🎨', 1800,
+              'AI/ML Engineer 🤖', 1800,
+              'Data Analyst 📊', 1800,
+              'Agentic AI Developer🤖',1800,
             ]}
             speed={50}
             repeat={Infinity}
