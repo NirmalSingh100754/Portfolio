@@ -5,6 +5,12 @@ import './Projects.css';
 
 const projects = [
   {
+    title: 'AtliQ Sales Data Analysis Dashboard',
+    link: 'https://public.tableau.com/app/profile/nirmal.singh6217/viz/AtliQ_Sales_Data_Analysis/Dashboard1',
+    description:
+      'Designed and implemented a star schema to structure sales data in MySQL, improving query efficiency and supporting scalable analytics.\n\nPerformed data cleaning and transformation to convert raw transactional data into actionable insights.\n\nDeveloped an interactive Tableau dashboard to visualize product performance, customer segmentation, and regional sales trends, enabling real-time KPI tracking.',
+  },
+  {
     title: 'AI YouTube Title & Description Generator',
     link: 'https://drive.google.com/drive/folders/1ngKBRECbzWyS83bl80Lmo02ypU2fOIaU',
     description:
